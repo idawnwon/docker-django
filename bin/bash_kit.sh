@@ -17,3 +17,10 @@ cstr(){
 cread(){
   read -p "$(cecho $1 "$2")" $3
 }
+
+divider(){
+  if [ -z "$1" ]; then x=1; else x=$1; fi
+  for i in {1..$x}; do
+    echo
+  done
+}
