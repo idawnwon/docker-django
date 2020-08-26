@@ -1,5 +1,3 @@
-#!/bin/bash
-
 source ./bin/shell_functions.sh
 
 workdir=~/django
@@ -68,6 +66,17 @@ YesNo
 
 divider
 
+if [[ ! -d "$workdir" ]]; then
+  mkdir -p $workdir
+  echo "Work directory established: $workdir"
+fi
+
+cd $workdir
+git clone https://github.com/idawnwon/docker-django.git
+mv docker-django/* ./
+rm -fR docker-django
+sudo chmod -R +x ./
+
 
 docker_engine=$(which docker)
 if [[ -z "$docker_engine" ]] && [[ -n "$if_is_mac" ]]; then
@@ -77,13 +86,6 @@ if [[ -z "$docker_engine" ]]; then
     ./bin/install_docker_and_compose.sh
 fi
 
-if [[ ! -d "$workdir" ]]; then
-  mkdir -p $workdir
-  echo "Work directory established: $workdir"
-fi
-cd $workdir
-
-git clone https://github.com/idawnwon/docker-django.git
 
 docker-compose run web django-admin startproject $project .
 
