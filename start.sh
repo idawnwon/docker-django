@@ -141,6 +141,14 @@ fi
 
 
 rm HereFile
+divider 2
+echo "################################################################"
+cecho red "
+CONGRATULATIONS!
+Your local django environment is ready!
 
-echo "Go to 'http://localhost:8000' your django starter site!"
-docker-compose up
+Go to 'http://localhost:8000' to view your django starter site!
+"
+echo "################################################################"
+divider 2
+docker-compose up > /dev/null
