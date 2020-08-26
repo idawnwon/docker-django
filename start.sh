@@ -71,7 +71,8 @@ divider
 
 docker_engine=$(which docker)
 if [[ -z "$docker_engine" ]] && [[ -n "$if_is_mac" ]]; then
-    cecho redWhite "It seems that you didn't have Docker installed on your mac. Download a stable version: https://download.docker.com/mac/stable/Docker.dmg  "
+    cecho redWhite "It seems that you didn't have Docker installed on your mac. Please install it and start over. Download a stable version: https://download.docker.com/mac/stable/Docker.dmg  "
+    exit 1
 if [[ -z "$docker_engine" ]]; then
     ./bin/install_docker_and_compose.sh
 fi
@@ -81,6 +82,8 @@ if [[ ! -d "$workdir" ]]; then
   echo "Work directory established: $workdir"
 fi
 cd $workdir
+
+git clone https://github.com/idawnwon/docker-django.git
 
 docker-compose run web django-admin startproject $project .
 
