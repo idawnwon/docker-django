@@ -158,7 +158,7 @@ cecho red "
 CONGRATULATIONS!
 Your local django environment is ready!
 
-Go to 'http://localhost:8000' to view your django starter site!
+Go to 'http://localhost:8000' to view your django welcome page!
 "
 echo "################################################################"
 divider 2
