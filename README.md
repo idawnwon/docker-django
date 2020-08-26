@@ -24,7 +24,7 @@ zsh start.sh
 ``` shell
 ./start.sh
 ```
-## 3. 5 questions would be prompted, answer each one. Or just hit enter to accept the default value.
+## 3. Five questions would be prompted, answer each one. Or just hit enter to accept the default value.
 ``` shell
 Here are 5 questions to answer: 
 
@@ -39,3 +39,33 @@ Here are 5 questions to answer:
 (5/5) Database PASSWORD [hit ENTER directly to accept default: "admin1234"]: 
 
 ```
+## 4. If you didn't have Docker and Docker Composer installed:
+### If you are on Mac, you will see:
+```shell
+It seems that you didn't have Docker Desktop installed on your mac. 
+Please install it and start over. 
+Download a stable version:
+https://download.docker.com/mac/stable/Docker.dmg
+```
+Docker Desktop contains Docker and Docker Composer.
+### If you are on Linux:
+```shell
+It seems that you didn't have Docker and Docker Compose installed.
+Do you wanna install them automatically right now?
+```
+If you say no, the script would quit. 
+Then, later on, you can choose to install them your self, or run `bash <(curl -s https://raw.githubusercontent.com/idawnwon/docker-django/master/bin/install_docker_and_compose.sh)` to install quickly. Come back and run `start.sh` again.
+## 5. Final step
+You would see:
+```shell
+################################################################
+# CONGRATULATIONS!
+# Your local django environment is ready!
+# Go to 'http://localhost:8000' to view your django welcome page!
+################################################################
+
+Starting django_db_1 ... done
+Starting django_web_1 ... done
+```
+This means the script reaches the end.
+Do not close the current shell, use browser to visit http://localhost:8000 to see the welcome page.
