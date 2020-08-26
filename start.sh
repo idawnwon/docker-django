@@ -86,6 +86,27 @@ elif [[ -z "$docker_engine" ]]; then
     ./bin/install_docker_and_compose.sh
 fi
 
+cat << EOF > docker-compose.yml
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=$DB_NAME
+      - POSTGRES_USER=$DB_USR
+      - POSTGRES_PASSWORD=$DB_PASS
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+EOF
+
 
 docker-compose run web django-admin startproject $project .
 
