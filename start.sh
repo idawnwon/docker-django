@@ -1,23 +1,6 @@
 source <(curl -s https://raw.githubusercontent.com/idawnwon/docker-django/master/bin/shell_functions.sh)
 
-divider
 
-docker_engine=$(which docker)
-if [[ -z "$docker_engine" ]] && [[ -n "$if_is_mac" ]]; then
-    cecho whiteRed "
-    It seems that you didn't have Docker Desktop installed on your mac. 
-    Please install it and start over. 
-    Download a stable version:
-    https://download.docker.com/mac/stable/Docker.dmg  "
-    exit 1
-elif [[ -z "$docker_engine" ]]; then
-    cstr purple "
-    It seems that you didn't have Docker and Docker Compose installed.
-    Do you wanna install them automatically right now?
-    "
-    YesNo
-    source <(curl -s https://raw.githubusercontent.com/idawnwon/docker-django/master/bin/install_docker_and_compose.sh)
-fi
 
 divider
 workdir=~/django
@@ -83,6 +66,25 @@ Database password: $(cstr yellow "$DB_PASS")
 divider
 
 YesNo
+
+divider
+
+docker_engine=$(which docker)
+if [[ -z "$docker_engine" ]] && [[ -n "$if_is_mac" ]]; then
+    cecho whiteRed "
+    It seems that you didn't have Docker Desktop installed on your mac. 
+    Please install it and start over. 
+    Download a stable version:
+    https://download.docker.com/mac/stable/Docker.dmg  "
+    exit 1
+elif [[ -z "$docker_engine" ]]; then
+    cstr purple "
+    It seems that you didn't have Docker and Docker Compose installed.
+    Do you wanna install them automatically right now?
+    "
+    YesNo
+    source <(curl -s https://raw.githubusercontent.com/idawnwon/docker-django/master/bin/install_docker_and_compose.sh)
+fi
 
 divider
 
