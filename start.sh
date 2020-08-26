@@ -1,4 +1,4 @@
-source ./bin/shell_functions.sh
+source <(curl -s https://raw.githubusercontent.com/idawnwon/docker-django/master/bin/shell_functions.sh)
 
 workdir=~/django
 project='local_django'
