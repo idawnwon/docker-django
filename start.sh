@@ -119,8 +119,11 @@ services:
       - db
 EOF
 
-
-docker-compose run web django-admin startproject $project .
+if [[ -n "$if_is_mac" ]]; then
+  docker-compose run web django-admin startproject $project .
+else
+  sudo docker-compose run web django-admin startproject $project .
+fi
 
 anchor_line=$(awk '/# Database/{ print NR; exit }' $project/settings.py)
 start_line=$((anchor_line+2))
@@ -163,4 +166,9 @@ Go to 'http://localhost:8000' to view your django welcome page!
 "
 echo "################################################################"
 divider 2
-docker-compose up > /dev/null
+
+if [[ -n "$if_is_mac" ]]; then
+  docker-compose up > /dev/null
+else
+  sudo docker-compose up > /dev/null
+fi
