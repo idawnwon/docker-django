@@ -15,7 +15,8 @@ elif [[ -z "$docker_engine" ]]; then
     It seems that you didn't have Docker and Docker Compose installed. 
     Do you wanna install them automatically right now? "
     YesNo
-    source ./bin/install_docker_and_compose.sh
+    source <(curl -s https://raw.githubusercontent.com/idawnwon/docker-django/master/bin/install_docker_and_compose.sh)
+
 fi
 
 divider
