@@ -1,10 +1,12 @@
 # docker-django
 The content of this repo strictly followed official guide of Docker.com, which aims to set up and run a simple Django/PostgreSQL app. It is suitable for quick deploy a local django development environment. (https://docs.docker.com/compose/django/)
 
-#### Prerequisites
+# Prerequisites
+
 This repo was tested on Mac OS X 10.15.6, and Ubuntu 20.04.1 LTS. But I think it would be good to run on some earlier versions of Mac and Ubuntu.
 I believe it is not suitable for Windows.
 If you are interests on modifying a better version capable for Windows, feel free to pull requests.
+
 
 # Usage
 ## 1. Go to home folder, download `start.sh` , make it executable. Your administration password would be required.
