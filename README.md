@@ -69,3 +69,10 @@ Starting django_web_1 ... done
 ```
 This means the script reaches the end.
 Do not close the current shell, use browser to visit http://localhost:8000 to see the welcome page.
+
+#### In some cases, if you are using a Linux server on cloud, could not reach http://localhost:8000 on local machine, you can try this to ensure the result:
+```shell
+curl -s http://localhost:8000 | grep 'Congratulations!'
+```
+If you get a output like this: `<h2>The install worked successfully! Congratulations!</h2>` , that means the same success.
+
