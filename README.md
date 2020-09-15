@@ -28,7 +28,7 @@ zsh start.sh
 ``` shell
 Here are 5 questions to answer: 
 
-(1/5) Work directory [hit ENTER directly to accept default: "/Users/dawnwon/django"]: 
+(1/5) Work directory [hit ENTER directly to accept default: "~/django"]: 
 
 (2/5) Project name [hit ENTER directly to accept default: "local_django"]: 
 
